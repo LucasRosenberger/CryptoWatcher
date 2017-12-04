@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
+  <ul>
+    <li class="navbar-brand">
+      <h2>CryptoWatcher</h2>
+    </li>
+  </ul>
+</nav>
+<div class="mainComponent">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cryptoCurrency of CryptoCurrencies" (click)="loadDetails(cryptoCurrency.id)">
+        <th scope="row">{{cryptoCurrency.rank}}</th>
+        <td>{{cryptoCurrency.name}}</td>
+        <td>{{cryptoCurrency.price_usd | currency}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

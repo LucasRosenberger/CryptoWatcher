@@ -1,0 +1,16 @@
+<div *ngIf="loaded">
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
+    <ul>
+      <li class="navbar-brand">
+        <h1>
+          <span class="badge badge-secondary">#{{cryptoDetails.rank}}</span>
+          {{cryptoDetails.name}}
+          <img width="20px" height="20px" alt="*" [src]=getImageSource()>
+        </h1>
+      </li>
+    </ul>
+  </nav>
+  <div>Price: {{cryptoDetails.price_usd | currency}}</div>
+  <div>Market Cap: {{cryptoDetails.market_cap_usd | currency}}</div>
+
+</div>
