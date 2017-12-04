@@ -24,6 +24,9 @@ export class MainComponent implements OnInit {
       .then(console.log)
       .catch(console.error);
   }
+  globalData() {
+    this.router.navigate(['/global']);
+  }
   ngOnInit() {
   }
 

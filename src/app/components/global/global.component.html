@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
+  <ul>
+    <li class="navbar-brand">
+      <h2>
+        <i class="material-icons myIcon">language</i>
+        Global Data
+      </h2>
+    </li>
+  </ul>
+</nav>
+
+<div class="detailView" *ngIf="loaded">
+  <div>
+    <h5>
+      <b>Total Market Cap</b>
+      <br> {{globalData.total_market_cap_usd | currency}}
+    </h5>
+  </div>
+
+  <div>
+    <h5>
+      <b>Last Updated</b>
+      <br> {{time}}
+    </h5>
+  </div>
+
+
+</div>

@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { MainComponent } from './components/main/main.component';
 import { CryptoLoaderService } from './services/crypto-loader.service';
 import { DetailComponent } from './components/detail/detail.component';
+import { GlobalComponent } from './components/global/global.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
-    DetailComponent
+    DetailComponent,
+    GlobalComponent
   ],
   imports: [
     BrowserModule,

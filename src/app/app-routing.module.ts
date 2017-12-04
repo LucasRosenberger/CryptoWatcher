@@ -1,3 +1,4 @@
+import { GlobalComponent } from './components/global/global.component';
 import { DetailComponent } from './components/detail/detail.component';
 import { MainComponent } from './components/main/main.component';
 import { NgModule } from '@angular/core';
@@ -12,6 +13,10 @@ const routes: Routes = [
   {
     path: 'details/:id',
     component: DetailComponent
+  },
+  {
+    path: 'global',
+    component: GlobalComponent
   }
 ];
 

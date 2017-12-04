@@ -5,12 +5,24 @@
         <h1>
           <span class="badge badge-secondary">#{{cryptoDetails.rank}}</span>
           {{cryptoDetails.name}}
-          <img width="20px" height="20px" alt="*" [src]=getImageSource()>
         </h1>
+      </li>
+
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li class="">
+        <img width="20px" height="20px" alt="*" [src]=getImageSource()>
       </li>
     </ul>
   </nav>
-  <div>Price: {{cryptoDetails.price_usd | currency}}</div>
-  <div>Market Cap: {{cryptoDetails.market_cap_usd | currency}}</div>
-
+  <div class="detailView">
+    <div>
+      <h2>
+        <b>Price:</b> {{cryptoDetails.price_usd | currency}}
+      </h2>
+    </div>
+    <div>
+      <b>Market Cap: </b>{{cryptoDetails.market_cap_usd | currency}}
+    </div>
+  </div>
 </div>

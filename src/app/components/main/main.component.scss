@@ -3,4 +3,18 @@
 }
 ul{
     margin-bottom: 0;
+    padding-left: 0;
+}
+.cryptoTableRow{
+    &:hover{
+        cursor: pointer;
+    }
+}
+.material-icons{
+    color:whitesmoke;
+}
+.myIcon{
+    &:hover{
+        cursor: pointer;
+    }
 }
