@@ -2,6 +2,7 @@ import { CryptoLoaderService } from './../../services/crypto-loader.service';
 import { Component, OnInit } from '@angular/core';
 import { GlobalData } from '../../../models/GlobalData';
 import * as moment from 'moment';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-global',
@@ -14,7 +15,7 @@ export class GlobalComponent implements OnInit {
   public globalData: GlobalData;
   public time: string;
 
-  constructor(public cryptoLoader: CryptoLoaderService) {
+  constructor(public cryptoLoader: CryptoLoaderService, private router: Router) {
     this.cryptoLoader.loadGlobalData().subscribe((data) => {
       this.globalData = data;
       let now = moment.unix(this.globalData.last_updated);
@@ -26,4 +27,7 @@ export class GlobalComponent implements OnInit {
   ngOnInit() {
   }
 
+  redirectToMain() {
+    this.router.navigate(['']);
+  }
 }

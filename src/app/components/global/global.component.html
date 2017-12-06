@@ -2,6 +2,7 @@
   <ul>
     <li class="navbar-brand">
       <h2>
+        <img (click)="redirectToMain()" width="40px" height="40px" src="./assets/images/back.png" alt="back" class="dOnly">
         <i class="material-icons myIcon">language</i>
         Global Data
       </h2>
@@ -14,6 +15,12 @@
     <h5>
       <b>Total Market Cap</b>
       <br> {{globalData.total_market_cap_usd | currency}}
+    </h5>
+  </div>
+  <div>
+    <h5>
+      <b>BTC % of Market Cap: </b>
+      <br>{{globalData.bitcoin_percentage_of_market_cap}} %
     </h5>
   </div>
 

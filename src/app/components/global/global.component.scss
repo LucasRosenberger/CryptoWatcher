@@ -6,3 +6,9 @@ ul{
     margin:20px 0;
     text-align: center;
 }
+.dOnly{
+    cursor: pointer;
+    @media only screen and (max-width: 480px) {
+        display: none;
+    }
+}

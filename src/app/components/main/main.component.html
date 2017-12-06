@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
   <ul>
-    <li class="navbar-brand">
+    <li class="navbar-brand myHead">
       <h2>CryptoWatcher</h2>
     </li>
   </ul>
@@ -12,11 +12,16 @@
 
 </nav>
 <div class="mainComponent">
-  <table class="table">
+  <table class="table table-striped">
     <thead>
       <tr>
         <th scope="col">
-          <b>#</b>
+          <select (change)="requestedNumberChanged($event.target.value)">
+            <option value="#10">#10</option>
+            <option selected="selected" value="#15">#15</option>
+            <option value="#50">#50</option>
+            <option value="#100">#100</option>
+          </select>
         </th>
         <th scope="col">Name</th>
         <th scope="col">Price</th>

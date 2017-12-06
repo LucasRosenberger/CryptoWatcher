@@ -5,7 +5,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { GlobalData } from '../../models/GlobalData';
 
-
 @Injectable()
 export class CryptoLoaderService {
 
@@ -13,8 +12,12 @@ export class CryptoLoaderService {
 
   }
 
-  public getTopTenCurrenciesByMarketCap(): Observable<CryptoCurrency[]> {
-    return this.http.get<CryptoCurrency[]>('https://api.coinmarketcap.com/v1/ticker/?limit=10');
+  public initRequest(): Observable<CryptoCurrency[]> {
+    return this.http.get<CryptoCurrency[]>('https://api.coinmarketcap.com/v1/ticker/?limit=15');
+  }
+
+  public getTopCurrenciesByMarketCap(num: string) {
+    return this.http.get<CryptoCurrency[]>('https://api.coinmarketcap.com/v1/ticker/?limit=' + num);
   }
 
   public getCurrencyDetailsById(id: string) {

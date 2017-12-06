@@ -9,3 +9,15 @@ li{
     margin: 20px 0;
     text-align: center;
 }
+.dOnly{
+    cursor: pointer;
+    @media only screen and (max-width: 480px) {
+        display: none;
+    }
+}
+.volImg{
+    margin: 0 10px;
+    @media only screen and (max-width: 480px) {
+        margin:0;
+    }
+}

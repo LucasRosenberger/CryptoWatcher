@@ -2,7 +2,10 @@
   <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
     <ul>
       <li class="navbar-brand">
+
         <h1>
+          <img (click)="redirectToMain()" width="40px" height="40px" src="./assets/images/back.png" alt="back" class="dOnly">
+
           <span class="badge badge-secondary">#{{cryptoDetails.rank}}</span>
           {{cryptoDetails.name}}
         </h1>
@@ -11,7 +14,7 @@
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li class="">
-        <img width="20px" height="20px" alt="*" [src]=getImageSource()>
+        <img class="volImg" width="20px" height="20px" alt="*" [src]=getImageSource()>
       </li>
     </ul>
   </nav>

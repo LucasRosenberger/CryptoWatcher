@@ -1,6 +1,6 @@
 import { CryptoCurrencyDetails } from '../../../models/CryptoCurrencyDetails';
 import { CryptoLoaderService } from './../../services/crypto-loader.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CurrencyPipe } from '@angular/common';
 
@@ -24,7 +24,7 @@ export class DetailComponent implements OnInit, OnDestroy {
     this.sub.unsubscribe();
   }
 
-  constructor(private route: ActivatedRoute, private cryptoLoader: CryptoLoaderService) { }
+  constructor(private route: ActivatedRoute, private cryptoLoader: CryptoLoaderService, private router: Router) { }
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
@@ -34,8 +34,10 @@ export class DetailComponent implements OnInit, OnDestroy {
         this.loaded = true;
       });
     });
+  }
 
-
+  redirectToMain() {
+    this.router.navigate(['']);
   }
 
 }
