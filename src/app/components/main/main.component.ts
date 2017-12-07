@@ -1,4 +1,3 @@
-import { CryptoGetterService } from './../../services/crypto-getter.service';
 import { Router } from '@angular/router';
 import { CryptoLoaderService } from './../../services/crypto-loader.service';
 import { CryptoCurrency } from './../../../models/CryptoCurrency';
@@ -8,20 +7,20 @@ import { CurrencyPipe } from '@angular/common';
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
-  styleUrls: ['./main.component.scss'],
-  providers: [CryptoGetterService]
+  styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit {
   public CryptoCurrencies: Array<CryptoCurrency>;
 
-  constructor(private cryptoLoader: CryptoLoaderService, private router: Router, private cryptoGetter: CryptoGetterService) {
+  constructor(private cryptoLoader: CryptoLoaderService, private router: Router) {
     this.CryptoCurrencies = new Array();
 
   }
 
   ngOnInit() {
-    this.CryptoCurrencies = this.cryptoGetter.Cryptos;
-    console.log("test");
+    this.cryptoLoader
+      .getTopCurrenciesByMarketCap()
+      .subscribe(d => this.CryptoCurrencies = d)
   }
   loadDetails(id: string): void {
     this.router.navigate(['/details', id])
@@ -33,7 +32,8 @@ export class MainComponent implements OnInit {
   }
 
   requestedNumberChanged(e: string) {
-    this.cryptoGetter.getWithParam(e.substring(1, e.length))
-      .then((val) => this.CryptoCurrencies = val);
+    this.cryptoLoader
+      .getTopCurrenciesByMarketCap(e)
+      .subscribe((val) => this.CryptoCurrencies = val)
   }
 }

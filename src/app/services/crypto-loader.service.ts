@@ -7,17 +7,19 @@ import { GlobalData } from '../../models/GlobalData';
 
 @Injectable()
 export class CryptoLoaderService {
-
+  public actNum: string = '15';
   constructor(private http: HttpClient) {
 
   }
 
   public initRequest(): Observable<CryptoCurrency[]> {
-    return this.http.get<CryptoCurrency[]>('https://api.coinmarketcap.com/v1/ticker/?limit=15');
+    return this.http.get<CryptoCurrency[]>('https://api.coinmarketcap.com/v1/ticker/?limit=');
   }
 
-  public getTopCurrenciesByMarketCap(num: string) {
-    return this.http.get<CryptoCurrency[]>('https://api.coinmarketcap.com/v1/ticker/?limit=' + num);
+  public getTopCurrenciesByMarketCap(num?: string) {
+    num ? this.actNum = num : null;
+
+    return this.http.get<CryptoCurrency[]>('https://api.coinmarketcap.com/v1/ticker/?limit=' + this.actNum);
   }
 
   public getCurrencyDetailsById(id: string) {
