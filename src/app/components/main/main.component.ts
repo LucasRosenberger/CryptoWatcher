@@ -39,7 +39,6 @@ export class MainComponent implements OnInit {
   }
 
   isSelected(e: string) {
-    console.log(e)
     return this.actNum === e;
   }
 }
