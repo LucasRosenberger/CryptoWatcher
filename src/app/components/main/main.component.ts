@@ -34,7 +34,7 @@ export class MainComponent implements OnInit {
 
   requestedNumberChanged(e: string) {
     this.cryptoLoader
-      .getTopCurrenciesByMarketCap(e.substr(1, e.length))
+      .getTopCurrenciesByMarketCap(e)
       .subscribe((val) => { this.CryptoCurrencies = val })
   }
 
