@@ -18,7 +18,7 @@ export class CryptoLoaderService {
 
   public getTopCurrenciesByMarketCap(num?: string) {
     num ? this.actNum = num : null;
-
+    console.log(num)
     return this.http.get<CryptoCurrency[]>('https://api.coinmarketcap.com/v1/ticker/?limit=' + this.actNum);
   }
 
@@ -28,5 +28,9 @@ export class CryptoLoaderService {
 
   public loadGlobalData() {
     return this.http.get<GlobalData>('https://api.coinmarketcap.com/v1/global/');
+  }
+
+  public get ActNum(): string {
+    return this.actNum;
   }
 }

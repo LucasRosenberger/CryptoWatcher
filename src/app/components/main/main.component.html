@@ -17,10 +17,10 @@
       <tr>
         <th scope="col">
           <select (change)="requestedNumberChanged($event.target.value)">
-            <option value="#10">#10</option>
-            <option selected="selected" value="#15">#15</option>
-            <option value="#50">#50</option>
-            <option value="#100">#100</option>
+            <option [selected]="isSelected('10')" value="#10">#10</option>
+            <option [selected]="isSelected('15')" value="#15">#15</option>
+            <option [selected]="isSelected('50')" value="#50">#50</option>
+            <option [selected]="isSelected('100')" value="#100">#100</option>
           </select>
         </th>
         <th scope="col">Name</th>

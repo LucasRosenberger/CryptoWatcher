@@ -11,15 +11,16 @@ import { CurrencyPipe } from '@angular/common';
 })
 export class MainComponent implements OnInit {
   public CryptoCurrencies: Array<CryptoCurrency>;
+  private actNum: string;
 
   constructor(private cryptoLoader: CryptoLoaderService, private router: Router) {
     this.CryptoCurrencies = new Array();
-
+    this.actNum = this.cryptoLoader.ActNum;
   }
 
   ngOnInit() {
     this.cryptoLoader
-      .getTopCurrenciesByMarketCap()
+      .getTopCurrenciesByMarketCap(this.actNum)
       .subscribe(d => this.CryptoCurrencies = d)
   }
   loadDetails(id: string): void {
@@ -33,7 +34,12 @@ export class MainComponent implements OnInit {
 
   requestedNumberChanged(e: string) {
     this.cryptoLoader
-      .getTopCurrenciesByMarketCap(e)
-      .subscribe((val) => this.CryptoCurrencies = val)
+      .getTopCurrenciesByMarketCap(e.substr(1, e.length))
+      .subscribe((val) => { this.CryptoCurrencies = val })
+  }
+
+  isSelected(e: string) {
+    console.log(e)
+    return this.actNum === e;
   }
 }
